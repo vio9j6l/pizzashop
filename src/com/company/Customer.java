@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+//update
 public class Customer {
     //Class Level Variables - Protect the data
     private int customerId;
