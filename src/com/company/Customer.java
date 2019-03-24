@@ -2,17 +2,16 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-//update
+
 public class Customer {
     //Class Level Variables - Protect the data
     private int customerId;
     private String customerName;
     private String customerPhone;
+    int cCount = 1;
 
     //Constructor Method
-    public Customer(int _customerId){
-        this.customerId = _customerId;
-    }
+    public Customer(int _customerId) {this.customerId = _customerId; }
 
     //Setters and Getters
     public int getCustomerId() { return customerId; }
@@ -25,7 +24,6 @@ public class Customer {
     public void setCustomerPhone(String _customerPhone) {this.customerPhone = _customerPhone;}
 
     public static Customer addCustomer(){
-        //int ccCust = Main.countCustomer();
         Customer cust = new Customer(Main.countCustomer());
         Scanner scnr = new Scanner(System.in);
         System.out.print("What is the Customer's name? ");

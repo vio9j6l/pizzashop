@@ -30,15 +30,17 @@ public class Order {
     public void setOrderTotal(float _orderTotal) {this.orderTotal = _orderTotal;}
 
     //add orders
-    public static Order addOrder(){
+    public static Order addOrder(ArrayList<Menu> mList) {
         Order oItems = new Order(Main.countItems());
         Scanner scnr = new Scanner(System.in);
-        System.out.println("What would you like to order ?");
+        Menu.listMenu(mList);
+        System.out.println("\nWhat would you like to order ?");
         oItems.setOrderItemsName(scnr.nextLine());
         System.out.println("How many would you like ?");
         oItems.setOrderQuantity(scnr.nextInt());
         return oItems;
     }
+
     //printout orders
 
     public static void printOrder(ArrayList<Order> oList){

@@ -60,7 +60,7 @@ public class Main {
                     break;
                 case MENU_CODE : Menu.listMenu(mList);
                     break;
-                case ORDE_CODE : oList.add(Order.addOrder());//addOrders();
+                case ORDE_CODE : oList.add(Order.addOrder(mList));//addOrders();
                     break;
                 case TRAN_CODE : //listTransactions();
                     break;
@@ -79,13 +79,14 @@ public class Main {
         return firstChar;
     }
 
-    public static int countCustomer() {
-        int cCount = 0;
-        return cCount ++;
-    }
 
     public static int countItems() {
         int oCount = 0;
         return oCount++;
+    }
+
+    public static int countCustomer() {
+        int cCount = 0;
+        return cCount++;
     }
 }
