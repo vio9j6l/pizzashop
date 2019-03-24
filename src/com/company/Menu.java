@@ -29,7 +29,8 @@ public class Menu {
 
     public static void listMenu(ArrayList<Menu> mList){
         for (Menu menu: mList){
-            System.out.print(menu.getMenuItem());
+            System.out.println("Item #: " + menu.getMenuId());
+            System.out.print("  " + menu.getMenuItem());
             System.out.println(" " + menu.getMenuPrice());
         }
     }

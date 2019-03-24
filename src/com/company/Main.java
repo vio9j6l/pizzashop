@@ -50,11 +50,12 @@ public class Main {
         oList.add(order1);
         tList.add(trans1);
 
+
         userAction = getAction(PROMPT_ACTION);
 
         while (userAction != EXIT_CODE) {
             switch(userAction) {
-                case CUST_CODE : cList.add(Customer.addCustomer());//addCustomer();
+                case CUST_CODE : cList.add(cust.addCustomer());//addCustomer();
                     break;
                 case CUST_PRNT : Customer.listCustomers(cList);
                     break;
@@ -81,12 +82,21 @@ public class Main {
 
 
     public static int countItems() {
-        int oCount = 0;
+        int oCount = 1;
         return oCount++;
     }
 
+
+/*
     public static int countCustomer() {
         int cCount = 0;
         return cCount++;
     }
+
+    public float getPrice(ArrayList<Menu> listMenu) {
+        float price = 0;
+        for(Menu menu : listMenu) {price = menu.getMenuPrice(); }
+        return price;
+    }
+    */
 }

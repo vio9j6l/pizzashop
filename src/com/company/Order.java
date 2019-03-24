@@ -17,8 +17,8 @@ public class Order {
     }
 
     //Setters and Getters
-    public int getorderId() { return orderId; }
-    public void setorderId(int _orderId) {this.orderId = _orderId;}
+    public int getOrderId() { return orderId; }
+    public void setOrderId(int _orderId) {this.orderId = _orderId;}
 
     public String getOrderItemsName() { return orderItemsName; }
     public void setOrderItemsName(String _orderItemsName) {this.orderItemsName = _orderItemsName; }
@@ -31,23 +31,54 @@ public class Order {
 
     //add orders
     public static Order addOrder(ArrayList<Menu> mList) {
-        Order oItems = new Order(Main.countItems());
+        String again;
+
+        Order order = new Order(Main.countItems());
         Scanner scnr = new Scanner(System.in);
-        Menu.listMenu(mList);
-        System.out.println("\nWhat would you like to order ?");
-        oItems.setOrderItemsName(scnr.nextLine());
-        System.out.println("How many would you like ?");
-        oItems.setOrderQuantity(scnr.nextInt());
-        return oItems;
+
+        while (true) {
+            //Order order = new Order(Main.countItems());
+            //Scanner scnr = new Scanner(System.in);
+            Menu.listMenu(mList);
+            System.out.println("\nEnter Item Name: ");
+            order.setOrderItemsName(scnr.nextLine());
+            System.out.println("Enter Quantity");
+            order.setOrderQuantity(scnr.nextInt());
+
+            System.out.println("Another Order? (Y/N): ");
+            again = scnr.nextLine();
+            if (again.equalsIgnoreCase("N")) { break; }
+        }
+        return order;
+    }
+
+    public float orderTotal() {
+        int i = 1;
+        float total = 0;
+
+        do {
+            total = getOrderQuantity() * getPrice();
+        }
+        while (i == getOrderId());
+
+        return total;
+    }
+
+    public float getPrice(ArrayList<Menu> listMenu) {
+        float price = 0;
+        //for(Menu menu : listMenu) {price = menu.getMenuPrice(); }
+        price = Menu.getMenuPrice();
+        return price;
     }
 
     //printout orders
 
     public static void printOrder(ArrayList<Order> oList){
         for (Order orderItem : oList) {
-            System.out.println("Order ID: " + orderItem.getorderId());
-            System.out.println("Order Items: " + orderItem.getOrderItemsName());
-            System.out.println("Order Total: ");
+            System.out.println("Order ID: " + orderItem.getOrderId());
+            System.out.print("Order Items: " + orderItem.getOrderItemsName());
+            System.out.println("Order Quantity: " + orderItem.getOrderQuantity());
+            //System.out.println("Order Total: ");
         }
     }
     //printout menu items for selection
