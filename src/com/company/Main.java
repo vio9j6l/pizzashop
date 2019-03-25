@@ -33,6 +33,8 @@ public class Main {
         ArrayList<Order> oList = new ArrayList<>();
         ArrayList<Transaction> tList = new ArrayList<>();
 
+        Customer cust = new Customer();
+
 
         Order order1 = new Order(1);
         Transaction trans1 = new Transaction(1);

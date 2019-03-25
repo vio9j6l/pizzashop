@@ -13,6 +13,8 @@ public class Customer {
     //Constructor Method
     public Customer(int _customerId) {this.customerId = _customerId; }
 
+    public Customer () {}
+
     //Setters and Getters
     public int getCustomerId() { return customerId; }
     public void setCustomerId(int _customerId) {this.customerId = _customerId;}
