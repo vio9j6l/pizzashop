@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Order {
-    //try
     //Class Level Variables - Protect the data
     private int orderId;
     private String orderItemsName;
@@ -31,20 +30,33 @@ public class Order {
 
     //add orders
     public static Order addOrder(ArrayList<Menu> mList) {
+        int orderNum;
         String again;
 
         Order order = new Order(Main.countItems());
         Scanner scnr = new Scanner(System.in);
 
+/*
+        Menu.listMenu(mList);
+        System.out.println("How many item would you like to Order? ");
+        orderNum = scnr.nextInt();
+
+        for(int i = 1; i <= orderNum; i++) {
+            System.out.printf("\nEnter Item#%d Name: ", i);
+            order.setOrderItemsName(scnr.nextLine());
+            System.out.print("\nEnter Quantity: ");
+            order.setOrderQuantity(scnr.nextInt());
+            System.out.println();
+        }
+        return order;
+*/
+
         while (true) {
-            //Order order = new Order(Main.countItems());
-            //Scanner scnr = new Scanner(System.in);
             Menu.listMenu(mList);
             System.out.println("\nEnter Item Name: ");
             order.setOrderItemsName(scnr.nextLine());
             System.out.println("Enter Quantity");
             order.setOrderQuantity(scnr.nextInt());
-
             System.out.println("Another Order? (Y/N): ");
             again = scnr.nextLine();
             if (again.equalsIgnoreCase("N")) { break; }
@@ -52,25 +64,26 @@ public class Order {
         return order;
     }
 
+
     public float orderTotal() {
         int i = 1;
         float total = 0;
 
         do {
-            total = getOrderQuantity() * getPrice();
+            //total = getOrderQuantity() * getPrice();
         }
         while (i == getOrderId());
 
         return total;
     }
-
+/*
     public float getPrice(ArrayList<Menu> listMenu) {
         float price = 0;
         //for(Menu menu : listMenu) {price = menu.getMenuPrice(); }
         price = Menu.getMenuPrice();
         return price;
     }
-
+*/
     //printout orders
 
     public static void printOrder(ArrayList<Order> oList){

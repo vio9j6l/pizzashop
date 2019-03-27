@@ -26,13 +26,13 @@ public class Customer {
     public void setCustomerPhone(String _customerPhone) {this.customerPhone = _customerPhone;}
 
     public Customer addCustomer(){
-        Customer cust = new Customer(cCount++);
+        Customer cust = new Customer(cCount);
         Scanner scnr = new Scanner(System.in);
         System.out.print("What is the Customer's name? ");
         cust.setCustomerName(scnr.nextLine());
         System.out.print("What is the Customer's phone number? ");
         cust.setCustomerPhone(scnr.nextLine());
-        cust.setCustomerId(cCount);
+        cust.setCustomerId(cCount++);
 
         return cust;
     }

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    int oCount = 0;
     public static void main(String[] args) {
 
         final char EXIT_CODE = 'E';
