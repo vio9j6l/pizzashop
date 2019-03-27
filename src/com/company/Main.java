@@ -21,11 +21,11 @@ public class Main {
         final char CUST_PRNT = 'P';
         final char MENU_CODE = 'M';
         final char ORDE_CODE = 'O';
-        //final char ORDE_PRINT = 'A';
+        final char ORDE_PRINT = 'P';
         final char TRAN_CODE = 'T';
         final char HELP_CODE = '?';
         char userAction;
-        final String PROMPT_ACTION = "Add 'C'ustomer, 'P'rint Customer, List 'M'enu, Add 'O'rder, List 'T'ransaction or 'E'xit: ";
+        final String PROMPT_ACTION = "Add 'C'ustomer, 'P'rint Customer, List 'M'enu, Add 'O'rder, 'P'rint Order, List 'T'ransaction or 'E'xit: ";
 
         ArrayList<Customer> cList = new ArrayList<>();
         ArrayList<Menu> mList = new ArrayList<>();
@@ -33,10 +33,8 @@ public class Main {
         ArrayList<Transaction> tList = new ArrayList<>();
 
         Customer cust = new Customer();
-
-
-        Order order1 = new Order(1);
-        Transaction trans1 = new Transaction(1);
+        Order order = new Order(1);
+        //Transaction trans1 = new Transaction(1);
 
         Menu menu1 = new Menu(1, "Plain", 4.99f);
         Menu menu2 = new Menu(2, "Meat", 6.99f);
@@ -48,8 +46,8 @@ public class Main {
         mList.add(menu3);
         mList.add(menu4);
 
-        oList.add(order1);
-        tList.add(trans1);
+        oList.add(order);
+        //tList.add(trans1);
 
 
         userAction = getAction(PROMPT_ACTION);
@@ -62,7 +60,7 @@ public class Main {
                     break;
                 case MENU_CODE : Menu.listMenu(mList);
                     break;
-                case ORDE_CODE : oList.add(Order.addOrder(mList));//addOrders();
+                case ORDE_CODE : oList.add(order.addOrder(mList));//addOrders();
                     break;
                 case TRAN_CODE : //listTransactions();
                     break;
@@ -81,19 +79,11 @@ public class Main {
         return firstChar;
     }
 
-
     public static int countItems() {
         int oCount = 1;
         return oCount++;
     }
-
-
 /*
-    public static int countCustomer() {
-        int cCount = 0;
-        return cCount++;
-    }
-
     public float getPrice(ArrayList<Menu> listMenu) {
         float price = 0;
         for(Menu menu : listMenu) {price = menu.getMenuPrice(); }

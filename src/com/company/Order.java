@@ -8,12 +8,14 @@ public class Order {
     private String orderItemsName;
     private int orderQuantity;
     private float orderTotal;
-    private ArrayList<Menu> orderItem;
+    int oCount = 1;
+    //private ArrayList<Menu> orderItem;
 
     //Constructor Method
     public Order(int _orderId){
         this.orderId = _orderId;
     }
+    public Order() {}
 
     //Setters and Getters
     public int getOrderId() { return orderId; }
@@ -29,15 +31,15 @@ public class Order {
     public void setOrderTotal(float _orderTotal) {this.orderTotal = _orderTotal;}
 
     //add orders
-    public static Order addOrder(ArrayList<Menu> mList) {
-        int orderNum;
+    public Order addOrder(ArrayList<Menu> mList) {
         String again;
 
         Order order = new Order(Main.countItems());
         Scanner scnr = new Scanner(System.in);
-        //try
 
-/*
+
+/* try to loop it by the number of the order
+        int orderNum;
         Menu.listMenu(mList);
         System.out.println("How many item would you like to Order? ");
         orderNum = scnr.nextInt();
@@ -59,6 +61,8 @@ public class Order {
             System.out.println("Enter Quantity");
             order.setOrderQuantity(scnr.nextInt());
             System.out.println("Another Order? (Y/N): ");
+            //order.setOrderId(oCount++);
+
             again = scnr.nextLine();
             if (again.equalsIgnoreCase("N")) { break; }
         }
