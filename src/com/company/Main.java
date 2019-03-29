@@ -60,7 +60,21 @@ public class Main {
                     break;
                 case MENU_CODE : Menu.listMenu(mList);
                     break;
-                case ORDE_CODE : oList.add(order.addOrder(mList));//addOrders();
+                case ORDE_CODE : // ask user to input orders
+                    String orderInput = "Enter 'Y'es to order\nEnter 'N'o to return to the main menu";
+                    userAction = getAction(orderInput);
+                    do{
+                        Scanner scnr = new Scanner(System.in);
+                        Menu.listMenu(mList);
+
+                        System.out.println("Enter Menu Item Id: ");
+                        int menuId = scnr.nextInt();
+                        System.out.println("Enter Quantity: ");
+                        //int quantity = scnr.nextInt();
+
+                    }
+                    while (userAction != 'N');
+
                     break;
                 case TRAN_CODE : //listTransactions();
                     break;
@@ -83,11 +97,5 @@ public class Main {
         int oCount = 1;
         return oCount++;
     }
-/*
-    public float getPrice(ArrayList<Menu> listMenu) {
-        float price = 0;
-        for(Menu menu : listMenu) {price = menu.getMenuPrice(); }
-        return price;
-    }
-    */
+
 }

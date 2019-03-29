@@ -28,10 +28,15 @@ public class Menu {
     public void setMenuPrice(float _menuPrice) {this.menuPrice = _menuPrice;}
 
     public static void listMenu(ArrayList<Menu> mList){
-        for (Menu menu: mList){
+        for (Menu menu: mList) {
             System.out.println("Item #: " + menu.getMenuId());
             System.out.println("Item Name: " + menu.getMenuItem());
-            System.out.println("Item Unit Price: " + menu.getMenuPrice());
+            System.out.println("Item Unit Price: $" + menu.getMenuPrice());
         }
+    }
+
+    public Menu menuInfo() {
+        System.out.printf("%-1s | %-12s | %-12s\n", getMenuId(), getMenuItem(), "$" + getMenuPrice());
+        return null;
     }
 }
